@@ -19,10 +19,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/17e4d3e9f5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
 <div class="container-wrapper">
   <div class="container">
+    <div class="overview">
    <h1>
     Riegel am Kaiserstuhl
   </h1>
@@ -34,9 +40,21 @@
       very cloudy
     </li>
   </ul>
+  </div>
   <div class="row">
     <div class="col-6">
-      10 °C
+      <div class="clearfix weather-temperature"> 
+        <i class="fas fa-cloud" class="float-left"></i>
+        <div class="float-left">
+          <strong>
+      10 
+      </strong> 
+      <small><span class="units">
+      °C
+      </span>
+      </small>
+      </div>
+      </div>
       </div>
     <div class="col-6">
           <ul>

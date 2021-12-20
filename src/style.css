@@ -7,6 +7,7 @@ h1 {
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  padding-top: 30px;
 }
 
 ul {
@@ -20,7 +21,7 @@ li {
   color: #22313f;
   font-size: 16px;
   font-weight: 100;
-  line-height: 19px;
+  line-height: 24px;
 }
 .container-wrapper {
   max-width: 600px;
@@ -33,4 +34,23 @@ li {
   margin-left: auto;
   border: 1px solid #22313f;
   border-radius: 5px;
+}
+.overview {
+  margin-bottom: 20px;
+}
+.fas fa-cloud-float-left {
+  margin-right: 10px;
+  height: 100px;
+  width: 100px;
+}
+.weather-temperature strong {
+  color: #22313f;
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 400;
+}
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }
