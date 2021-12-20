@@ -1,6 +1,7 @@
 let now = new Date();
 let hours = now.getHours();
 let minutes = now.getMinutes();
+let seconds = now.getSeconds();
 let days = [
   "Sunday",
   "Monday",
@@ -13,21 +14,27 @@ let days = [
 let day = days[now.getDay()];
 
 let datum = document.querySelector("p");
-datum.innerHTML = `${day}, ${hours}:${minutes}`;
+datum.innerHTML = `${day}, ${hours}:${minutes}${seconds}`;
 
 function displayWeatherCondition(response) {
-  document.querySelector("#yourCity").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
+  let temperature = document.querySelector("#temperature");
+  let city = document.querySelector("#city");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#icon");
+
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  city.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  date.innerHTML = formatDate(response.data.dt * 1000);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  document.querySelector("#humidity").innerHTML = Math.round(
-    response.data.main.humidity
-  );
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
