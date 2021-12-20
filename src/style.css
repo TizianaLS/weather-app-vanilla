@@ -38,10 +38,9 @@ li {
 .overview {
   margin-bottom: 20px;
 }
-.fas fa-cloud-float-left {
+.fas fa-cloud {
   margin-right: 10px;
-  height: 100px;
-  width: 100px;
+  font-size: 60px;
 }
 .weather-temperature strong {
   color: #22313f;
