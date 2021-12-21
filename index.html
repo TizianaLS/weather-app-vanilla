@@ -28,13 +28,13 @@
   <body>
 <div class="container-wrapper">
   <div class="container">
-    <form id="search-form">
+    <form id="search-form" class="mb-3">
       <div class="row"> 
-        <div class="col-3"> 
-      <input type="search"placeholder= "Enter your city"class="form-control"/>
+        <div class="col-9"> 
+      <input type="search"placeholder= "Enter your city"class="form-control" id="city-input"/>
       </div>
       <div class="col-3">
-        <input type="submit" value="search" class="btn-btn-primary"/>
+        <input type="submit" value="search" class="btn-btn-primary w-100"/>
       </div>
       </div>
     </form>
@@ -44,7 +44,7 @@
     Riegel am Kaiserstuhl
   </h1>
   <ul>
-    <li>
+    <li id="date">
       Sunday 12:00
     </li>
     <li id="description">
@@ -55,9 +55,7 @@
   <div class="row">
     <div class="col-6">
       <div class="clearfix weather-temperature"> 
-        <img ""
-        id="icon"
-        class="float-left"/>
+        <img"" id="icon" class="float-left"/>
         <div class="float-left">
           <strong>
       10 
@@ -70,17 +68,17 @@
       </div>
     <div class="col-6">
           <ul>
-            <li><strong>Humidity:</strong><span id="humidity">82</span>%</li>
+            <li><strong>Humidity:</strong><span id="humidity"> 82</span> %</li>
             <li>
-              <strong>Precipitation:</strong><span id="precipation">10</span>%
+              <strong>Precipitation:</strong><span id="precipation"> 10</span> %
             </li>
-            <li><strong>Wind:</strong><span id="wind">10</span>km/h</li>
+            <li><strong>Wind:</strong><span id="wind"> 10</span> km/h</li>
           </ul>
     </div>
   </div>
 
 <small>
-  <a href="">Open Source</a> by Tiziana 👩‍💻
+  <a href="">open source</a> by Tiziana 👩‍💻
 </small>
 </div>
     <script src="src/app.js"></script>

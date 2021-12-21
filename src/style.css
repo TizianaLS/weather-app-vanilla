@@ -12,13 +12,13 @@ h1 {
 
 ul {
   margin: 0;
-  padding: 0;
+  padding: 0px;
 }
 li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #22313f;
+  color: grey;
   font-size: 16px;
   font-weight: 100;
   line-height: 24px;
@@ -31,18 +31,15 @@ li {
 .container {
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  border: 1px solid #22313f;
+  margin: 0 auto;
+  border: 2px solid #c4c1e0;
   border-radius: 5px;
+  max-width: 800px;
 }
 .overview {
   margin-bottom: 20px;
 }
-.fas fa-cloud {
-  margin-right: 10px;
-  width: 90px;
-}
+
 .weather-temperature strong {
   color: #22313f;
   font-size: 64px;
@@ -53,4 +50,16 @@ li {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+small {
+  font-family: monospace;
+}
+.btn-btn-primary w-100 {
+  padding: 30px;
+  color: #c4c1e0;
+  border: #7c73e6;
+  box-shadow: #c4c1e0;
+}
+#search-form {
+  padding: 30px;
 }

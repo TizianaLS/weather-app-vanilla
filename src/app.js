@@ -13,8 +13,8 @@ let days = [
 ];
 let day = days[now.getDay()];
 
-let datum = document.querySelector("p");
-datum.innerHTML = `${day}, ${hours}:${minutes}${seconds}`;
+let currentDate = document.querySelector("'#date");
+currentDate.innerHTML = `${day}, ${hours}:${minutes}${seconds}`;
 
 function displayWeatherCondition(response) {
   let temperature = document.querySelector("#temperature");
@@ -44,8 +44,8 @@ function searchCity(city) {
 }
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city").value;
-  searchCity(city);
+  let cityInputElement = document.querySelector("#city-input").value;
+  search(cityInputElement.value);
 }
 function searchLocation(position) {
   let apiKey = "022870f4a121a89d4676febbf05fafcf";
@@ -59,5 +59,5 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let searchForm = document.querySelector("#searchCity");
+let form = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
