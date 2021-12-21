@@ -54,12 +54,33 @@ li {
 small {
   font-family: monospace;
 }
-.btn-btn-primary w-100 {
-  padding: 30px;
-  color: #c4c1e0;
-  border: #7c73e6;
-  box-shadow: #c4c1e0;
+#button {
+  background: #885df1;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 15 px 0;
+  border: 2px solid #885df1;
+  border-radius: 8px;
+  height: 50 px;
+  cursor: pointer;
 }
+#button:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
 #search-form {
   padding: 30px;
+}
+.form-control {
+  background: #f9f7fe;
+  border: none;
+  padding: 15 px 20 px;
+  display: inline-block;
+  border-radius: 6 px;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  height: 50 px;
+  line-height: 20px;
 }
