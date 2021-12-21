@@ -1,7 +1,6 @@
 let now = new Date();
 let hours = now.getHours();
 let minutes = now.getMinutes();
-let seconds = now.getSeconds();
 let days = [
   "Sunday",
   "Monday",
@@ -14,7 +13,7 @@ let days = [
 let day = days[now.getDay()];
 
 let currentDate = document.querySelector("'#date");
-currentDate.innerHTML = `${day}, ${hours}:${minutes}${seconds}`;
+currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function displayWeatherCondition(response) {
   let temperature = document.querySelector("#temperature");
