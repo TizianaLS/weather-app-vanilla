@@ -12,7 +12,7 @@ let days = [
 ];
 let day = days[now.getDay()];
 
-let currentDate = document.querySelector("'#date");
+let currentDate = document.querySelector("#date");
 currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function displayWeatherCondition(response) {
@@ -28,12 +28,11 @@ function displayWeatherCondition(response) {
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
-  date.innerHTML = formatDate(response.data.dt * 1000);
+
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
@@ -43,8 +42,8 @@ function searchCity(city) {
 }
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input").value;
-  search(cityInputElement.value);
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
 }
 function searchLocation(position) {
   let apiKey = "022870f4a121a89d4676febbf05fafcf";
@@ -59,4 +58,6 @@ function getCurrentLocation(event) {
 }
 
 let form = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
+form.addEventListener("submit", handleSubmit);
+
+searchCity("New York");
