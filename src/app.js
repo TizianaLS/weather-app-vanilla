@@ -15,27 +15,8 @@ let day = days[now.getDay()];
 let currentDate = document.querySelector("#date");
 currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function displayWeatherCondition(response) {
-  let temperature = document.querySelector("#temperature");
-  let city = document.querySelector("#city");
-  let description = document.querySelector("#description");
-  let humidity = document.querySelector("#humidity");
-  let wind = document.querySelector("#wind");
-  let icon = document.querySelector("#icon");
-
-  temperature.innerHTML = Math.round(response.data.main.temp);
-  city.innerHTML = response.data.name;
-  description.innerHTML = response.data.weather[0].description;
-  humidity.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
-
-  icon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-}
-
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -61,6 +42,35 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "022870f4a121a89d4676febbf05fafcf";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayWeatherCondition(response) {
+  let temperature = document.querySelector("#temperature");
+  let city = document.querySelector("#city");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#icon");
+
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  city.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  getForecast(response.data.coords);
 }
 
 function searchCity(city) {
@@ -89,4 +99,3 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 searchCity("New York");
-displayForecast();
