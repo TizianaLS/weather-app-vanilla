@@ -18,9 +18,10 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
 
-function formatDay(timespan) {
+function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDate();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -65,7 +66,6 @@ function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "022870f4a121a89d4676febbf05fafcf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -89,7 +89,7 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  getForecast(response.data.coords);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
