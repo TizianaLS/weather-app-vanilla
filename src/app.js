@@ -18,9 +18,6 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
-
-  let currentDate = document.querySelector("#date");
-  currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
 }
 
 function formatDay(timespan) {
@@ -74,6 +71,7 @@ function getForecast(coordinates) {
 
 function displayWeatherCondition(response) {
   let temperature = document.querySelector("#temperature");
+  let dateElement = document.querySelector("#date");
   let city = document.querySelector("#city");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
@@ -81,6 +79,7 @@ function displayWeatherCondition(response) {
   let icon = document.querySelector("#icon");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
